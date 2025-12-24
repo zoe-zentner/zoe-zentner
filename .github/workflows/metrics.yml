@@ -1,10 +1,17 @@
-- uses: lowlighter/metrics@latest
-        with:
+with:
           token: ${{ secrets.METRICS_TOKEN }}
-          template: classic      # Keeps it simple
-          base: ""               # Hides the big "header" and general stats
+          template: repository      # Switched to repository for a smaller footprint
+          base: ""                  # Strictly disables the header/avatar
+          
+          # Language Plugin Settings
           plugin_languages: yes
-          plugin_languages_details: percentage # Shows percentages like your screenshot
-          plugin_languages_sections: most-used
-          plugin_languages_indepth: yes        # This is what looks deep into forks
-          repositories_forks: yes             # Explicitly include your forks
+          plugin_languages_indepth: yes        # Analyzes commits in forks
+          plugin_languages_sections: most-used # Only shows the top bar
+          plugin_languages_details: percentage
+          
+          # Fork Settings
+          repositories_forks: yes             # Includes your forked repos
+          
+          # Formatting to match your screenshot
+          config_timezone: America/Los_Angeles # Change to your timezone
+          design_outdated_height: 160         # Keeps the image file small
