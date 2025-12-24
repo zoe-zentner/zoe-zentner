@@ -2,19 +2,19 @@
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           
-          # 1. CHANGE TEMPLATE: This is the key to the compact layout
+          # 1. THE FIX: Swapping to 'repository' removes the large profile box
           template: repository
-          base: "" 
+          base: "" # This removes the header, avatar, and stats
           
-          # 2. LANGUAGE BAR ONLY: Mimics your first screenshot
+          # 2. LANGUAGE SETTINGS: Only show the bar
           plugin_languages: yes
           plugin_languages_sections: most-used
           plugin_languages_details: percentage
           
-          # 3. INCLUDE FORKS: Looks deep into your forked repos
+          # 3. FORK SUPPORT: This handles the deep scanning you need
           plugin_languages_indepth: yes
           repositories_forks: yes
           
-          # 4. CLEANUP: Hides tiny languages to keep the bar clean
-          plugin_languages_threshold: 2%
+          # 4. CLEANUP: Hide clutter languages like HTML/CSS
           plugin_languages_ignored: html, css
+          plugin_languages_threshold: 2%
