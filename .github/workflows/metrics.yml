@@ -1,17 +1,20 @@
-with:
+- uses: lowlighter/metrics@latest
+        with:
           token: ${{ secrets.METRICS_TOKEN }}
-          template: repository      # Switched to repository for a smaller footprint
-          base: ""                  # Strictly disables the header/avatar
           
-          # Language Plugin Settings
+          # 1. CHANGE TEMPLATE: This is the key to the compact layout
+          template: repository
+          base: "" 
+          
+          # 2. LANGUAGE BAR ONLY: Mimics your first screenshot
           plugin_languages: yes
-          plugin_languages_indepth: yes        # Analyzes commits in forks
-          plugin_languages_sections: most-used # Only shows the top bar
+          plugin_languages_sections: most-used
           plugin_languages_details: percentage
           
-          # Fork Settings
-          repositories_forks: yes             # Includes your forked repos
+          # 3. INCLUDE FORKS: Looks deep into your forked repos
+          plugin_languages_indepth: yes
+          repositories_forks: yes
           
-          # Formatting to match your screenshot
-          config_timezone: America/Los_Angeles # Change to your timezone
-          design_outdated_height: 160         # Keeps the image file small
+          # 4. CLEANUP: Hides tiny languages to keep the bar clean
+          plugin_languages_threshold: 2%
+          plugin_languages_ignored: html, css
